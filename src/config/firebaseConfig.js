@@ -5,13 +5,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyCKAtrVIXhKghyqXxwIz_FOx6oU01reXu8",
-	authDomain: "carhoster-486c2.firebaseapp.com",
-	projectId: "carhoster-486c2",
-	storageBucket: "carhoster-486c2.appspot.com",
-	messagingSenderId: "938187848199",
-	appId: "1:938187848199:web:1c8dcc3d60aa1a6b4cc8a2",
-	measurementId: "G-3H6YH9W9DB",
+	apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+	authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+	projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+	storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+	messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+	appId: import.meta.env.VITE_FIREBASE_APP_ID,
+	measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);

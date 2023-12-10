@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { collection, doc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
-import { Box, CircularProgress, Container, Grid, Paper, Typography } from "@mui/material";
-import { Button } from "@mui/joy";
-import { Link } from "react-router-dom";
-import { rupiah } from "../utils";
+import { CircularProgress, Container, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { BookingForm, CarDetailCard } from "../components";
 
 const fetchCarDetails = async (id, setCar, setLoading) => {
 	try {
@@ -23,54 +21,43 @@ const fetchCarDetails = async (id, setCar, setLoading) => {
 	}
 };
 
-const CarDetailsDisplay = ({ car }) => (
-	<Paper elevation={3} sx={{ maxWidth: "80%", padding: 3 }}>
-		<Grid container spacing={2}>
-			<Grid item xs={12} md={6}>
-				<img src={car.carImage} alt={`${car.year} ${car.make} ${car.model}`} style={{ width: "100%", height: "auto" }} />
-			</Grid>
-			<Grid item xs={12} md={6}>
-				<Typography variant="h5">
-					{car.year} {car.make} {car.model}
-				</Typography>
-				<Typography variant="body1" gutterBottom>
-					Tipe: {car.type}
-				</Typography>
-				<Typography variant="body1" gutterBottom>
-					Bahan bakar: {car.fuel}
-				</Typography>
-				<Typography variant="body1" gutterBottom>
-					Transmisi: {car.transmission}
-				</Typography>
-				<Typography variant="body1" gutterBottom>
-					Jumlah kursi: {car.seats}
-				</Typography>
-				<Typography variant="body1" gutterBottom>
-					Status: {car.status}
-				</Typography>
-				<Typography variant="body1" gutterBottom>
-					Harga: {rupiah(car.price)} / hari
-				</Typography>
-				<Button variant="solid" color="success" disabled={car.status !== "Available"} fullWidth>
-					Pesan
-				</Button>
-			</Grid>
-		</Grid>
-	</Paper>
-);
-
 const CarDetails = () => {
 	const { id } = useParams();
 	const [car, setCar] = useState(null);
 	const [loading, setLoading] = useState(true);
+
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
 	useEffect(() => {
 		fetchCarDetails(id, setCar, setLoading);
 	}, [id]);
 
 	return (
-		<Container maxWidth="xl" sx={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100vh" }}>
-			{loading ? <CircularProgress /> : car ? <CarDetailsDisplay car={car} /> : <Typography variant="body1">Car not found</Typography>}
+		<Container
+			sx={{
+				mt: 3,
+				mb: 3,
+				display: "flex",
+				flexDirection: "column",
+				alignItems: isMobile ? "center" : "stretch",
+				justifyContent: isMobile ? "center" : "flex-start",
+			}}
+		>
+			{loading ? (
+				<CircularProgress />
+			) : car ? (
+				<Grid container spacing={4} alignItems="center">
+					<Grid item xs={12} sm={6}>
+						<CarDetailCard car={car} />
+					</Grid>
+					<Grid item xs={12} sm={6}>
+						<BookingForm car={car} />
+					</Grid>
+				</Grid>
+			) : (
+				<Typography variant="body1">Car not found</Typography>
+			)}
 		</Container>
 	);
 };

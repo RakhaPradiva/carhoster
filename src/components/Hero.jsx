@@ -52,7 +52,7 @@ const Hero = () => {
 				}}
 			>
 				<img src="/hero-blob.svg" alt="hero blob" style={{ position: "absolute", top: "-10%", left: "0", width: "100%", height: "100%", zIndex: "-1" }} />
-				<img src="/hero-img.png" alt="Car" style={{ width: "100%", objectFit: "cover", position: "relative", zIndex: "-1", transform: "scale(1)" }} />
+				<img src="/hero-img.png" alt="Car" style={{ width: "100%", objectFit: "contain", position: "relative", zIndex: "-1", transform: "scale(1)" }} />
 			</Box>
 		</Box>
 	);
