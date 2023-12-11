@@ -92,7 +92,7 @@ const BookingForm = ({ car }) => {
 
 		window.open(response.payment_url, "_blank", "noopener,noreferrer");
 		window.location.href = "/car";
-		
+
 		setFormData({
 			name: "",
 			email: "",
