@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home, Car, CarDetails, Contact, AddCar, NotFound } from "./pages";
 import { Navbar, BottomMenu, Footer } from "./components";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./config/firebaseConfig";
+import { auth, analytics } from "./config/firebaseConfig";
+import { logEvent } from "firebase/analytics";
 
 const App = () => {
 	const [user, setUser] = useState(null);
@@ -15,6 +16,12 @@ const App = () => {
 			} else {
 				setUser(null);
 			}
+		});
+
+		logEvent(analytics, "page_view", {
+			page_title: document.title,
+			page_location: window.location.href,
+			page_path: window.location.pathname,
 		});
 
 		return () => unsubscribe();

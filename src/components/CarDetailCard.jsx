@@ -12,7 +12,7 @@ const CarDetailCard = ({ car }) => {
 					<Typography variant="h5">
 						{car.year} {car.make} {car.model}
 					</Typography>
-					<Grid xs={12}>
+					<Grid item xs={12}>
 						<img
 							src={car.carImage}
 							alt={`${car.year} ${car.make} ${car.model}`}
