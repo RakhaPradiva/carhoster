@@ -53,10 +53,10 @@ const BookingForm = ({ car }) => {
 			item_details: [
 				{
 					id: car.id,
-					name: car.year + " " + car.model + " " + car.make,
+					name: car.year + " " + car.make + " " + car.model,
 					price: car.price,
 					quantity: Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24)),
-					brand: car.model,
+					brand: car.make,
 					category: car.type,
 					merchant_name: "CarHoster",
 				},
