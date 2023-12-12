@@ -147,7 +147,7 @@ const BookingForm = ({ car }) => {
 						name="endDate"
 						onChange={handleChange}
 						inputProps={{ min: nextDay }}
-						disabled={!isAvailable}
+						disabled={!isAvailable || !startDate}
 					/>
 				</Grid>
 				<Grid item xs={12}>
