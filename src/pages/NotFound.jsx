@@ -16,7 +16,7 @@ const NotFound = () => {
 				color: "text.primary",
 			}}
 		>
-			<Typography variant="h1" component="h1" gutterBottom>
+			<Typography variant="h1" fontWeight="600" component="h1" gutterBottom>
 				404
 			</Typography>
 			<Typography variant="h4" component="p" gutterBottom>
@@ -26,7 +26,7 @@ const NotFound = () => {
 				We couldn&apos;t find the page you were looking for.
 			</Typography>
 			<Button variant="plain" component={Link} to="/">
-				Go back home
+				Go back Home
 			</Button>
 		</Box>
 	);

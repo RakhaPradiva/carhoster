@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, Car, CarDetails, Contact, AddCar, NotFound } from "./pages";
+import { Home, Car, CarDetails, Contact, AddCar, NotFound, PaymentSuccess, PaymentError, PaymentUnfinish } from "./pages";
 import { Navbar, BottomMenu, Footer } from "./components";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, analytics } from "./config/firebaseConfig";
@@ -36,6 +36,10 @@ const App = () => {
 				<Route path="/car/:id" element={<CarDetails />} />
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/addcar" element={user === "rakhapradiva.dev@gmail.com" ? <AddCar /> : <NotFound />} />
+				<Route path="/payment/success" element={<PaymentSuccess />} />
+				<Route path="/payment/error" element={<PaymentError />} />
+				<Route path="/payment/unfinish" element={<PaymentUnfinish />} />
+
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />

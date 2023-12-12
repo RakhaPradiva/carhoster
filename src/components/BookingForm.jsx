@@ -24,7 +24,6 @@ const BookingForm = ({ car }) => {
 	const startDateObj = new Date(startDate);
 	startDateObj.setDate(startDateObj.getDate() + 1);
 	const nextDay = `${startDateObj.getFullYear()}-${String(startDateObj.getMonth() + 1).padStart(2, "0")}-${String(startDateObj.getDate()).padStart(2, "0")}`;
-	const clientKey = import.meta.env.VITE_MIDTRANS_CLIENT_KEY;
 	const serverKey = import.meta.env.VITE_MIDTRANS_SERVER_KEY;
 	const paymentLink = import.meta.env.VITE_MIDTRANS_PAYMENT_LINK;
 
@@ -90,8 +89,7 @@ const BookingForm = ({ car }) => {
 
 		const response = await url.json();
 
-		window.open(response.payment_url, "_blank", "noopener,noreferrer");
-		window.location.href = "/car";
+		window.location.href = response.payment_url;
 
 		setFormData({
 			name: "",
@@ -103,7 +101,6 @@ const BookingForm = ({ car }) => {
 			terms: false,
 		});
 
-		// close current tab
 		setLoading(false);
 	};
 

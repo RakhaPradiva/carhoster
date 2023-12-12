@@ -1,13 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, TextField, Grid, Container, Typography, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, CircularProgress, Link } from "@mui/material";
 import { Button } from "@mui/joy";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../config/firebaseConfig";
 
 const Contact = () => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [message, setMessage] = useState("");
 	const [open, setOpen] = useState(false);
-	const [loading, setLoading] = useState(false); // New state for controlling the loading spinner
+	const [loading, setLoading] = useState(false); // New state for
+
+	useEffect(() => {
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				setName(user.displayName);
+				setEmail(user.email);
+			}
+		});
+	}, []);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -27,7 +38,7 @@ const Contact = () => {
 		setEmail("");
 		setMessage("");
 		setOpen(true);
-		setLoading(false); 
+		setLoading(false);
 	};
 
 	const handleClose = () => {
@@ -36,7 +47,7 @@ const Contact = () => {
 
 	return (
 		<Container maxWidth="md" sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-			<Typography align="center" variant="h4" component="h1" gutterBottom>
+			<Typography align="center" variant="h4" fontWeight="600" component="h1" gutterBottom>
 				Hubungi Kami
 			</Typography>
 			<Typography align="center" variant="subtitle1" gutterBottom>
