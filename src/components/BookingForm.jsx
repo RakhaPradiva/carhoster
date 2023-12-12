@@ -156,7 +156,7 @@ const BookingForm = ({ car }) => {
 				<Grid item xs={12}>
 					<Checkbox required checked={terms} onChange={handleCheckboxChange} disabled={!isAvailable} />
 					<Typography variant="body1" component="span">
-						Saya menyetujui <Link to="/">syarat dan ketentuan</Link> yang berlaku
+						Saya menyetujui <Link to="/#terms">syarat dan ketentuan</Link> yang berlaku
 					</Typography>
 				</Grid>
 				<Grid item xs={12}>

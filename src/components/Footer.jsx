@@ -1,9 +1,7 @@
 import { Box, Grid, Typography, IconButton, Button } from "@mui/material";
 import { navMenuItems } from "../constants";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -24,17 +22,11 @@ const Footer = () => {
 		>
 			<Grid container spacing={4} justifyContent="center" alignItems="center">
 				<Grid item xs={12} sm={4} md={3}>
-					<Typography variant="h6">CarHoster</Typography>
+					<Typography variant="h4">CarHoster</Typography>
 					<Typography variant="subtitle1">Your trusted car rental service</Typography>
 					<Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
-						<IconButton color="inherit" component={Link} to="/facebook" target="_blank">
-							<FacebookIcon />
-						</IconButton>
-						<IconButton color="inherit" component={Link} to="https://instagram.com" target="_blank">
+						<IconButton color="inherit" component={Link} to="https://instagram.com/carhoster" target="_blank">
 							<InstagramIcon />
-						</IconButton>
-						<IconButton color="inherit" component={Link} to="/twitter" target="_blank">
-							<TwitterIcon />
 						</IconButton>
 					</Box>
 				</Grid>
@@ -49,13 +41,13 @@ const Footer = () => {
 					))}
 				</Grid>
 				<Grid item xs={12} sm={4} md={3}>
-					<Button component={Link} to="https://whatsapp.com" target="_blank" variant="contained" color="success" startIcon={<WhatsAppIcon />} fullWidth>
+					<Button component={Link} to="https://wa.me/+6289523978515" target="_blank" variant="contained" color="success" startIcon={<WhatsAppIcon />} fullWidth>
 						Contact Us on WhatsApp
 					</Button>
 				</Grid>
 			</Grid>
 			<Box sx={{ mt: 4 }}>
-				<Typography variant="body2" align="center">
+				<Typography variant="body1" align="center">
 					© {currentYear} CarHoster. All rights reserved.
 				</Typography>
 			</Box>
