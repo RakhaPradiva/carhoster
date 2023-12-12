@@ -13,18 +13,32 @@ const CarDetailCard = ({ car }) => {
 						{car.year} {car.make} {car.model}
 					</Typography>
 					<Grid item xs={12}>
-						<img
-							src={car.carImage}
-							alt={`${car.year} ${car.make} ${car.model}`}
+						<div
 							style={{
+								width: "100%",
+								height: "100%",
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
 								maxWidth: "75%",
-								display: "block",
+								maxHeight: "75%",
 								margin: "auto",
-								height: "auto",
-								objectFit: "cover",
-								objectPosition: "center",
 							}}
-						/>
+						>
+							<img
+								src={car.carImage}
+								alt={`${car.year} ${car.make} ${car.model}`}
+								style={{
+									maxWidth: "100%",
+									display: "block",
+									margin: "auto",
+									height: "auto",
+									objectFit: "cover",
+									objectPosition: "center",
+									width: "100%",
+								}}
+							/>
+						</div>
 					</Grid>
 					<Typography variant="body1" gutterBottom>
 						Tipe: {car.type}
