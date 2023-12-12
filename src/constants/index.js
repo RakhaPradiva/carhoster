@@ -17,9 +17,9 @@ export const navMenuItems = [
 export const services = [
 	{
 		icon: "/carpickup.svg",
-		title: "Fasilitas Antar-Jemput",
+		title: "Fasilitas Sewa atau Rental Mobil",
 		description:
-			"Kami akan menyediakan fasilitas antar-jemput bagi pelanggan yang ingin menyewa mobil. Fasilitas ini akan memudahkan pelanggan untuk mendapatkan mobil yang disewa tanpa harus datang ke tempat persewaan.",
+			"Menyediakan berbagai jenis mobil untuk disewa, termasuk mobil mewah, mobil keluarga, dan mobil khusus. Pelanggan dapat memilih mobil yang sesuai dengan kebutuhan mereka dan memesan mobil melalui platform online kami atau melalui tim pemesanan yang telah ditentukan.",
 	},
 	{
 		icon: "/travel.svg",
