@@ -23,7 +23,7 @@ const CarDetailCard = ({ car }) => {
 								margin: "auto",
 								objectFit: "cover",
 								objectPosition: "center",
-								minHeight: "300px",
+								minHeight: isSmallScreen ? "100%" : "300px",
 							}}
 						/>
 					</Grid>
