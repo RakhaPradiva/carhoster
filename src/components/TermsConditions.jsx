@@ -17,7 +17,7 @@ const TermsConditions = () => {
 					},
 				}}
 			>
-				<Grid container spacing={2} justifyContent="center">
+				<Grid container spacing={4} justifyContent="center">
 					<Grid item xs={12}>
 						<Typography variant="h4" fontWeight="700" component="h4" gutterBottom align="center">
 							Syarat dan Ketentuan

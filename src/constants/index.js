@@ -55,6 +55,11 @@ export const termsandconditions = [
 		description:
 			"Pelanggan diharapkan menggunakan mobil sesuai dengan peraturan lalu lintas yang berlaku dan hanya untuk keperluan yang sah. Mereka bertanggung jawab penuh atas kerusakan atau kehilangan mobil selama masa penyewaan.",
 	},
+	{
+		title: "Deposit & Jaminan",
+		description:
+			"Sebelum mengambil mobil, pelanggan diharuskan membayar deposit atau memberikan jaminan keamanan. Jumlah deposit atau jaminan akan ditentukan berdasarkan jenis mobil dan lama penyewaan. Deposit atau jaminan ini akan dikembalikan sepenuhnya setelah mobil dikembalikan dalam kondisi yang sama saat disewakan, tanpa kerusakan atau pelanggaran yang dikenakan biaya.",
+	},
 ];
 
 export const faqs = [

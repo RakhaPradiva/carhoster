@@ -26,7 +26,7 @@ const PaymentSuccess = () => {
 				Pembayaran Berhasil
 			</Typography>
 			<Typography variant="h4" component="p" gutterBottom>
-				Terima kasih telah melakukan pembayaran.
+				Terima kasih telah melakukan pembayaran. Silahkan cek email Anda untuk informasi lebih lanjut.
 			</Typography>
 
 			<Button variant="plain" component={Link} to="/">
