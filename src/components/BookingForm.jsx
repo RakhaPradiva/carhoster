@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Box, Grid, Typography, TextField, Checkbox, CircularProgress } from "@mui/material";
+import { Box, Grid, Typography, TextField, Checkbox, CircularProgress, Radio, RadioGroup, FormControlLabel, FormControl } from "@mui/material";
 import { Button } from "@mui/joy";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebaseConfig";
@@ -12,11 +12,15 @@ const BookingForm = ({ car }) => {
 		phoneNumber: "",
 		startDate: "",
 		endDate: "",
+		startTime: "00:00",
+		endTime: "00:00",
 		address: "",
 		terms: false,
+		driverOption: "Self Drive",
 	});
+
 	const [loading, setLoading] = useState(false);
-	const { name, email, phoneNumber, startDate, endDate, address, terms } = formData;
+	const { name, email, phoneNumber, startDate, endDate, startTime, endTime, address, terms, driverOption } = formData;
 
 	const isAvailable = car.status === "Available";
 	const today = new Date();
@@ -41,6 +45,10 @@ const BookingForm = ({ car }) => {
 
 	const handleCheckboxChange = (event) => {
 		setFormData((prevState) => ({ ...prevState, terms: event.target.checked }));
+	};
+
+	const handleRadioChange = (event) => {
+		setFormData((prevState) => ({ ...prevState, driverOption: event.target.value }));
 	};
 
 	const handleSubmit = async (event) => {
@@ -98,7 +106,10 @@ const BookingForm = ({ car }) => {
 			startDate: "",
 			endDate: "",
 			address: "",
+			startTime: "00:00",
+			endTime: "00:00",
 			terms: false,
+			driverOption: "Self Drive",
 		});
 
 		setLoading(false);
@@ -110,6 +121,14 @@ const BookingForm = ({ car }) => {
 				Form Penyewaan
 			</Typography>
 			<Grid container spacing={2}>
+				<Grid item xs={12}>
+					<FormControl component="fieldset">
+						<RadioGroup row aria-label="driverOption" name="driverOption" value={driverOption} onChange={handleRadioChange} disabled={!isAvailable}>
+							<FormControlLabel value="Self Drive" control={<Radio />} label="Self Drive" />
+							<FormControlLabel value="With Driver" control={<Radio />} label="With Driver" />
+						</RadioGroup>
+					</FormControl>
+				</Grid>
 				<Grid item xs={12} sm={6}>
 					<TextField required fullWidth type="text" label="Nama" name="name" value={name} onChange={handleChange} disabled={!isAvailable} />
 				</Grid>
@@ -146,6 +165,12 @@ const BookingForm = ({ car }) => {
 						inputProps={{ min: nextDay }}
 						disabled={!isAvailable || !startDate}
 					/>
+				</Grid>
+				<Grid item xs={12} sm={6}>
+					<TextField required fullWidth type="time" label="Waktu Mulai" name="startTime" value={startTime} onChange={handleChange} disabled={!isAvailable} />
+				</Grid>
+				<Grid item xs={12} sm={6}>
+					<TextField required fullWidth type="time" label="Waktu Selesai" name="endTime" value={endTime} onChange={handleChange} disabled={!isAvailable} />
 				</Grid>
 				<Grid item xs={12}>
 					<TextField required fullWidth multiline rows={4} label="Alamat" name="address" value={address} onChange={handleChange} disabled={!isAvailable} />
