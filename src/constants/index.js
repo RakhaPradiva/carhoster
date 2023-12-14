@@ -61,7 +61,7 @@ export const termsandconditions = [
 			"Sebelum mengambil mobil, pelanggan diharuskan membayar deposit atau memberikan jaminan keamanan. Jumlah deposit atau jaminan akan ditentukan berdasarkan jenis mobil dan lama penyewaan. Deposit atau jaminan ini akan dikembalikan sepenuhnya setelah mobil dikembalikan dalam kondisi yang sama saat disewakan, tanpa kerusakan atau pelanggaran yang dikenakan biaya.",
 	},
 	{
-		tittle: "Titik Penjemputan dan Pengembalian",
+		title: "Titik Penjemputan dan Pengembalian",
 		description:
 			"Titik penjemputan dan pengembalian mobil dapat disesuaikan sesuai dengan kebutuhan pelanggan. Pelanggan dapat memilih untuk mengambil mobil di lokasi yang ditentukan atau meminta pengiriman mobil ke alamat yang telah ditentukan. Biaya tambahan mungkin dikenakan untuk pengiriman mobil ke alamat yang telah ditentukan.",
 	},
